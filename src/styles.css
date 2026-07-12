@@ -1,0 +1,320 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Design system definition.
+ *
+ * The @theme inline block maps CSS custom properties to Tailwind utility
+ * classes (e.g. --color-primary -> bg-primary, text-primary).
+ *
+ * The :root and .dark blocks define the actual color values using oklch.
+ * All colors MUST use oklch format.
+ *
+ * To add a new semantic color:
+ * 1. Add the variable to :root (light value) and .dark (dark value)
+ * 2. Register it in @theme inline as --color-<name>: var(--<name>)
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+}
+
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+  --foreground: oklch(0.984 0.003 247.858);
+  --card: oklch(0.208 0.042 265.755);
+  --card-foreground: oklch(0.984 0.003 247.858);
+  --popover: oklch(0.208 0.042 265.755);
+  --popover-foreground: oklch(0.984 0.003 247.858);
+  --primary: oklch(0.929 0.013 255.508);
+  --primary-foreground: oklch(0.208 0.042 265.755);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(0.984 0.003 247.858);
+  --muted: oklch(0.279 0.041 260.031);
+  --muted-foreground: oklch(0.704 0.04 256.788);
+  --accent: oklch(0.279 0.041 260.031);
+  --accent-foreground: oklch(0.984 0.003 247.858);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.984 0.003 247.858);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.551 0.027 264.364);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.208 0.042 265.755);
+  --sidebar-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.279 0.041 260.031);
+  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.551 0.027 264.364);
+}
+
+/* ============================================================
+ * MoveMate design system (namespaced `mm-*`)
+ * Used by the fleet-management app under /login, /dashboard, etc.
+ * The luxury landing page at "/" keeps its own inline palette.
+ * ============================================================ */
+:root {
+  /* Surfaces */
+  --mm-background: #FAF8F2;
+  --mm-surface: #FFFFFF;
+  --mm-surface-container-low: #F6F3F2;
+  --mm-surface-container: #F0EDED;
+  --mm-surface-container-high: #EAE7E7;
+  --mm-inverse-surface: #303030;
+
+  /* Borders */
+  --mm-border: #E5DFC8;
+  --mm-outline: #807664;
+
+  /* Text */
+  --mm-on-surface: #1B1C1C;
+  --mm-body: #2E2E2E;
+  --mm-on-surface-variant: #4E4636;
+
+  /* Brand */
+  --mm-primary: #B68D2C;
+  --mm-primary-hover: #96731F;
+  --mm-on-primary: #FFFFFF;
+  --mm-primary-container: #FFDF9F;
+  --mm-secondary: #625F4C;
+  --mm-secondary-container: #E9E3CB;
+
+  /* Semantic */
+  --mm-success: #39693B;
+  --mm-success-container: #BAF0B6;
+  --mm-danger: #B85450;
+  --mm-error-container: #FFDAD6;
+  --mm-on-error-container: #93000A;
+
+  /* Elevation */
+  --mm-shadow-float: 0 4px 20px -2px rgba(46, 46, 46, 0.08);
+}
+
+@theme inline {
+  --color-mm-bg: var(--mm-background);
+  --color-mm-surface: var(--mm-surface);
+  --color-mm-surface-low: var(--mm-surface-container-low);
+  --color-mm-surface-container: var(--mm-surface-container);
+  --color-mm-surface-high: var(--mm-surface-container-high);
+  --color-mm-inverse: var(--mm-inverse-surface);
+  --color-mm-border: var(--mm-border);
+  --color-mm-outline: var(--mm-outline);
+  --color-mm-on-surface: var(--mm-on-surface);
+  --color-mm-body: var(--mm-body);
+  --color-mm-on-surface-variant: var(--mm-on-surface-variant);
+  --color-mm-primary: var(--mm-primary);
+  --color-mm-primary-hover: var(--mm-primary-hover);
+  --color-mm-on-primary: var(--mm-on-primary);
+  --color-mm-primary-container: var(--mm-primary-container);
+  --color-mm-secondary: var(--mm-secondary);
+  --color-mm-secondary-container: var(--mm-secondary-container);
+  --color-mm-success: var(--mm-success);
+  --color-mm-success-container: var(--mm-success-container);
+  --color-mm-danger: var(--mm-danger);
+  --color-mm-error-container: var(--mm-error-container);
+  --color-mm-on-error-container: var(--mm-on-error-container);
+
+  /* Typography scale — Inter */
+  --text-mm-display-lg: 48px;
+  --text-mm-display-lg--line-height: 56px;
+  --text-mm-display-lg--font-weight: 700;
+  --text-mm-display-lg--letter-spacing: -0.02em;
+
+  --text-mm-headline-lg: 32px;
+  --text-mm-headline-lg--line-height: 40px;
+  --text-mm-headline-lg--font-weight: 600;
+  --text-mm-headline-lg--letter-spacing: -0.01em;
+
+  --text-mm-headline-md: 24px;
+  --text-mm-headline-md--line-height: 32px;
+  --text-mm-headline-md--font-weight: 600;
+
+  --text-mm-headline-sm: 20px;
+  --text-mm-headline-sm--line-height: 28px;
+  --text-mm-headline-sm--font-weight: 600;
+
+  --text-mm-body-lg: 16px;
+  --text-mm-body-lg--line-height: 24px;
+  --text-mm-body-lg--font-weight: 400;
+
+  --text-mm-body-md: 14px;
+  --text-mm-body-md--line-height: 20px;
+  --text-mm-body-md--font-weight: 400;
+
+  --text-mm-body-sm: 13px;
+  --text-mm-body-sm--line-height: 18px;
+  --text-mm-body-sm--font-weight: 400;
+
+  --text-mm-label-md: 12px;
+  --text-mm-label-md--line-height: 16px;
+  --text-mm-label-md--font-weight: 500;
+  --text-mm-label-md--letter-spacing: 0.02em;
+
+  --text-mm-label-sm: 11px;
+  --text-mm-label-sm--line-height: 14px;
+  --text-mm-label-sm--font-weight: 600;
+
+  --font-mm-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --radius-mm-sm: 4px;
+  --radius-mm-md: 8px;
+  --radius-mm-pill: 9999px;
+
+  /* MoveMate spacing scale (4px base) */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+  --spacing-2xl: 48px;
+  --spacing-3xl: 64px;
+}
+
+/* Mobile headline-lg override */
+@media (max-width: 767px) {
+  :root {
+    --text-mm-headline-lg: 28px;
+    --text-mm-headline-lg--line-height: 36px;
+  }
+}
+
+/* MoveMate app shell class — apply on any /login, /dashboard, etc. page wrapper.
+   Scopes Inter + background without affecting the landing page at "/". */
+@utility mm-app {
+  font-family: var(--font-mm-sans);
+  background-color: var(--mm-background);
+  color: var(--mm-body);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@utility mm-shadow-float {
+  box-shadow: var(--mm-shadow-float);
+}
+
+/* Material Symbols icon defaults — matches Stitch mockups */
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 24;
+}
+.material-symbols-outlined.filled {
+  font-variation-settings: "FILL" 1;
+}
+
+
+@utility mm-focus-ring {
+  outline: 2px solid var(--mm-primary);
+  outline-offset: 2px;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+  }
+}
+
